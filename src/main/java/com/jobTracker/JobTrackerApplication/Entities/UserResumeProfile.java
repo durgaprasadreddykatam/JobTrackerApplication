@@ -13,7 +13,7 @@ import java.util.List;
 @Getter
 @Setter
 @Document(collection = "profiles")
-public class UserProfile {
+public class UserResumeProfile {
     @Id
     private String profileId;
     private String resumeId;

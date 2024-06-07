@@ -2,15 +2,20 @@ package com.jobTracker.JobTrackerApplication.GeminiAi;
 
 import lombok.*;
 
-import java.lang.reflect.Array;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class GeminiMessage {
+public class GeminiMessageContents {
+    private List<GeminiParts> parts;
 
-    private String prompt;
-    private String inputData;
+    @Data
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class GeminiParts {
+        private String text;
+    }
 }

@@ -18,13 +18,34 @@ public class UserAccount {
     private String firstName;
     private String lastName;
 
-    private List<String> userRoles;
+    private String userRoles;
 
-    public List<String> getUserRoles() {
+    private boolean emailVerified;
+    private boolean defaultResumeUploaded;
+
+    public boolean isDefaultResumeUploaded() {
+        return defaultResumeUploaded;
+    }
+
+    public void setDefaultResumeUploaded(boolean defaultResumeUploaded) {
+        this.defaultResumeUploaded = defaultResumeUploaded;
+    }
+
+    public boolean isEmailVerified() {
+        return emailVerified;
+    }
+
+    public void setEmailVerified(boolean emailVerified) {
+        this.emailVerified = emailVerified;
+    }
+
+
+
+    public String getUserRoles() {
         return userRoles;
     }
 
-    public void setUserRoles(List<String> userRoles) {
+    public void setUserRoles(String userRoles) {
         this.userRoles = userRoles;
     }
 
