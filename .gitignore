@@ -1,11 +1,19 @@
+# Helper files
 HELP.md
+
+# Maven target directories
 target/
-!.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
-!**/src/main/resources/application.properties
 !**/src/test/**/target/
 
-### STS ###
+# Maven Wrapper
+!.mvn/wrapper/maven-wrapper.jar
+
+# Spring Boot application properties and credentials
+!**/src/main/resources/application.properties
+!**/src/main/resources/credentials.json
+
+# STS (Spring Tool Suite)
 .apt_generated
 .classpath
 .factorypath
@@ -13,24 +21,66 @@ target/
 .settings
 .springBeans
 .sts4-cache
-.properties
-*.properties
 
-### IntelliJ IDEA ###
+# IntelliJ IDEA
 .idea
 *.iws
 *.iml
 *.ipr
 
-### NetBeans ###
+# NetBeans
 /nbproject/private/
 /nbbuild/
 /dist/
 /nbdist/
 /.nb-gradle/
+
+# Gradle build directories
 build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
-### VS Code ###
+# VS Code
 .vscode/
+
+# Logs
+logs
+*.log
+
+# Temporary files
+tmp/
+*.tmp
+*.swp
+
+# Compiled class files
+*.class
+
+# Generated files
+bin/
+gen/
+
+# Coverage reports
+coverage/
+*.lcov
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+
+# Node modules
+node_modules/
+
+# NPM debug files
+npm-debug.log*
+
+# Yarn integrity files
+.yarn-integrity
+.yarn-cache/
+.pnp.*
+
+# JetBrains Rider
+.idea/
+*.sln.iml

@@ -5,8 +5,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Data
-@Getter
-@Setter
 public class Project {
     private String projectName;
     private String organisation;

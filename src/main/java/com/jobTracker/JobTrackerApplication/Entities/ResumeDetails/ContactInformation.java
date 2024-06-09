@@ -5,8 +5,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Data
-@Getter
-@Setter
 public class ContactInformation {
     private  String firstName;
     private String lastName;
