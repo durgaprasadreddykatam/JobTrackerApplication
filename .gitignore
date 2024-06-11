@@ -84,3 +84,5 @@ npm-debug.log*
 # JetBrains Rider
 .idea/
 *.sln.iml
+/src/main/resources/application.properties
+/src/main/resources/credentials.json
