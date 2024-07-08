@@ -1,8 +1,10 @@
 package com.jobTracker.JobTrackerApplication.Service;
 
 import com.jobTracker.JobTrackerApplication.Entities.Documents;
+import com.jobTracker.JobTrackerApplication.Entities.JobDetails.LinkedDocuments;
 import com.jobTracker.JobTrackerApplication.Projections.DocumentProjection;
 import com.jobTracker.JobTrackerApplication.Repositories.DocumentRepository;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -11,11 +13,14 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class DocumentsService {
+
+
     @Autowired
     DocumentRepository documentRepository;
     @Autowired
@@ -29,7 +34,7 @@ public class DocumentsService {
         String fileExtension = getFileExtension(file.getOriginalFilename());
         File convertedFile = convertToFile(file);
         String fileId = documentUploadService.uploadFileToDrive(convertedFile);
-        if(document.getDocumentType().equals("resume")) {
+        if(document.getDocumentType().equals("Resume")) {
             document.setTextContent(textExtractor.extractText(convertedFile, fileExtension));
         }
         return documentRepository.save(document);
@@ -70,6 +75,10 @@ public class DocumentsService {
             }
         }
         return convertedFile;
+    }
+
+    public List<LinkedDocuments> fetchDocumentListForLinking(String userId){
+            return documentRepository.findAllByUserId2(userId);
     }
 
 }

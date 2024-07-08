@@ -20,6 +20,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -63,6 +64,7 @@ public class DocumentController {
             documents.setUploadedDate(Instant.now());
             documents.setFileType(file.getContentType());
             documents.setOriginalFileName(file.getOriginalFilename());
+            documents.setJobsLinkedList(new ArrayList<>());
             if ("other".equals(roleAssosiated)) {
                 documents.setRoleAssociated(otherRole);
             } else {
@@ -95,6 +97,21 @@ public class DocumentController {
       boolean deleteDocument = documentsService.deleteDocument(documentId);
       if(deleteDocument) return new ResponseEntity<>(HttpStatus.OK);
       else return  new ResponseEntity(HttpStatus.BAD_REQUEST);
+    }
+
+    @GetMapping("/getDocumentsForLinking")
+    public ResponseEntity<Map<String,List>> getDocumentsForLinking(HttpServletRequest request){
+        Map map =new HashMap();
+        String userId =jwtTokenGenerator.getUserId();
+        List documents = documentsService.fetchDocumentListForLinking(userId);
+        if(documents.isEmpty()){
+            map.put("user have Not Uploaded Yet",documents);
+        }
+        else{
+            map.put("documentList",documents);
+        }
+        return new ResponseEntity<>(map, HttpStatus.OK);
+
     }
 
 

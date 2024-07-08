@@ -80,5 +80,12 @@ public class JwtTokenGenerator {
 
     }
 
+    public String getUserName(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Jwt jwt = (Jwt) authentication.getCredentials();
+        return (String) jwt.getClaim("firstName");
+
+    }
+
 
 }

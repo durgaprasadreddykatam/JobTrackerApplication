@@ -9,6 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.io.File;
 import java.time.Instant;
+import java.util.List;
 
 @Document(collection = "documents")
 @Data
@@ -25,6 +26,7 @@ public class Documents {
     private String fileType;
     private Instant uploadedDate;
     private Instant modifiedDate;
+    private List<String> jobsLinkedList;
 
 
 }
