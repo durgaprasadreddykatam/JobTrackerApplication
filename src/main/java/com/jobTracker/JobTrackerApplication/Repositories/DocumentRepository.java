@@ -21,4 +21,7 @@ public interface DocumentRepository extends MongoRepository<Documents,String> {
     @Query(value = "{ 'userId' : ?0 }", fields = "{ 'documentId' : 1, 'documentName' : 1, 'uploadedDate' : 1, 'documentType' : 1,'jobsLinkedList': 1,'originalFileName': 1}")
     List<LinkedDocuments> findAllByUserId2(String userId);
 
+    @Query(value = "{ '_id' : ?0 }", fields = "{ 'textContent' : 1, '_id': 0 }")
+    String findByDocumentId(String documentId);
+
 }

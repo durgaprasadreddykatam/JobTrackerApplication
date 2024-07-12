@@ -31,7 +31,7 @@ public class SpringSecurityConfiguration   {
     public SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(csrf->csrf.disable());
         http.authorizeHttpRequests((requests) -> ((AuthorizeHttpRequestsConfigurer.AuthorizedUrl)requests
-                .requestMatchers("/test","/error","/createAccount").permitAll()
+                .requestMatchers("/test","/error","/createAccount","/check","/summarize").permitAll()
                 .anyRequest()).authenticated());
         http.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
         http.formLogin(formLogin->formLogin.disable());
